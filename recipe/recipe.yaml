@@ -13,7 +13,7 @@ source:
   sha256: 329dda3328f0fb45ec7128353f7fc9108f08e9676c9dc1873b4841c5c00c94bd
 
 build:
-  number: 0
+  number: 1
   skip:
     # litellm pulls the compiled fastuuid, which ships py311+ on macOS while
     # linux gets py310 too. 

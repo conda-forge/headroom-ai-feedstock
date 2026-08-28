@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.32.1"
+  version: "0.37.0"
 
 package:
   name: headroom-ai
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/h/headroom-ai/headroom_ai-${{ version }}.tar.gz
-  sha256: 329dda3328f0fb45ec7128353f7fc9108f08e9676c9dc1873b4841c5c00c94bd
+  sha256: 7ffdecba91ce44dd02f1601499f6c935c47374b7cb6ec61e569b816a4bb78a26
 
 build:
   number: 0

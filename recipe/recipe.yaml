@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.32.1"
+  version: "0.37.0"
 
 package:
   name: headroom-ai
@@ -10,15 +10,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/h/headroom-ai/headroom_ai-${{ version }}.tar.gz
-  sha256: 329dda3328f0fb45ec7128353f7fc9108f08e9676c9dc1873b4841c5c00c94bd
+  sha256: 7ffdecba91ce44dd02f1601499f6c935c47374b7cb6ec61e569b816a4bb78a26
 
 build:
-  number: 1
+  number: 0
   skip:
     # litellm pulls the compiled fastuuid, which ships py311+ on macOS while
     # linux gets py310 too. 
     - osx and match(python, "<3.11")
   script:
+    # tree-sitter's unicode.h needs le16toh/be16toh from <endian.h>, which the
+    # cos7 sysroot (glibc 2.17) only exposes under _BSD_SOURCE. Our default
+    # CFLAGS set _POSIX_C_SOURCE + _DEFAULT_SOURCE, but this glibc predates
+    # _DEFAULT_SOURCE, so _BSD_SOURCE never gets auto-enabled. _GNU_SOURCE
+    # forces it on.
+    - export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -45,7 +51,7 @@ requirements:
     - click >=8.3.3
     - rich >=13.0.0
     - opentelemetry-api >=1.24.0
-    - ast-grep >=0.30.0
+    - ast-grep >=0.30.0,!=0.44.1
     - pyyaml >=6.0
     - tomlkit >=0.13.0,<1.0
     - fastapi

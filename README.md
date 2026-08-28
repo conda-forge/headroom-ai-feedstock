@@ -250,4 +250,5 @@ Feedstock Maintainers
 =====================
 
 * [@rxm7706](https://github.com/rxm7706/)
+* [@soapy1](https://github.com/soapy1/)
 

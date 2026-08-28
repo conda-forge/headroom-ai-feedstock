@@ -23,8 +23,10 @@ build:
     # cos7 sysroot (glibc 2.17) only exposes under _BSD_SOURCE. Our default
     # CFLAGS set _POSIX_C_SOURCE + _DEFAULT_SOURCE, but this glibc predates
     # _DEFAULT_SOURCE, so _BSD_SOURCE never gets auto-enabled. _GNU_SOURCE
-    # forces it on.
-    - export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
+    # forces it on. Only required for linux
+    - if: linux
+      then:
+        - export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:

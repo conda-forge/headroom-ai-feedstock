@@ -47,9 +47,6 @@ requirements:
     - python
     - tiktoken >=0.5.0
     - pydantic >=2.0.0
-    - if: match(python, "<3.14")
-      then:
-        - litellm >=1.86.2,<2.0
     - click >=8.3.3
     - rich >=13.0.0
     - opentelemetry-api >=1.24.0
@@ -58,9 +55,9 @@ requirements:
     - if: match(python, "<3.11")
       then:
         - tomli >=2.0.0
-
     - litellm >=1.96.2,<2.0
-    - ast-grep-cli >=0.30.0,!=0.44.1
+    - ast-grep >=0.30.0,!=0.44.1
+
 tests:
   - python:
       imports:

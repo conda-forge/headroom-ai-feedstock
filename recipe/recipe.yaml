@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 0.39.1
+  version: 0.40.0
 
 package:
   name: headroom-ai
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/h/headroom-ai/headroom_ai-${{ version }}.tar.gz
-  sha256: 204f4970730896a66f5ba567236d0f050650e14602bc756dbcc0357ac660b695
+  sha256: 19403478224ae30e2599865de743051d0138f0e5d68d78418643c6f1f7892593
 
 build:
   number: 0
@@ -56,8 +56,8 @@ requirements:
       then:
         - tomli >=2.0.0
     - litellm >=1.96.2,<2.0
-    - ast-grep >=0.30.0,!=0.44.1
-
+    - truststore >=0.10.0
+    - ast-grep-cli >=0.30.0,!=0.44.1
 tests:
   - python:
       imports:

@@ -57,7 +57,7 @@ requirements:
         - tomli >=2.0.0
     - litellm >=1.96.2,<2.0
     - truststore >=0.10.0
-    - ast-grep-cli >=0.30.0,!=0.44.1
+    - ast-grep >=0.30.0,!=0.44.1
 tests:
   - python:
       imports:

@@ -58,7 +58,7 @@ requirements:
     - litellm >=1.96.2,<2.0
     - truststore >=0.10.0
     - hf-xet >=1.6.0
-    - ast-grep-cli >=0.30.0,!=0.44.1
+    - ast-grep >=0.30.0,!=0.44.1
 tests:
   - python:
       imports:

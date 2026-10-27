@@ -5,7 +5,7 @@
 
 [workspace]
 name = "headroom-ai-feedstock"
-version = "2026.9.23"  # conda-smithy version used to generate this file
+version = "2026.10.24"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/headroom-ai-feedstock"
 authors = ["@conda-forge/headroom-ai"]
 channels = ["conda-forge"]
